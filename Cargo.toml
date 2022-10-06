@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 minifb = "0.23"
+clap = {version = "3.2.22", features = ["yaml"]}

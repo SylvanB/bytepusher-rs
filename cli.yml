@@ -1,0 +1,6 @@
+name: BytePusher.rs
+args:
+  - INPUT:
+      help: The BP disk image to load
+      required: true
+      index: 1
