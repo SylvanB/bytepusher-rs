@@ -25,16 +25,20 @@ impl DisplayBuff {
         let mut palette = vec![0; 0xff * 0xff * 0xff];
 
         let mut i = 0;
-        for mut r in 0..0xff {
-            for mut g in 0..0xff {
-                for mut b in 0..0xff {
+        for r in (0..=0xff).step_by(0x33) {
+            for g in (0..=0xff).step_by(0x33) {
+                for b in (0..=0xff).step_by(0x33) {
                     palette[i] = 0xff000000 | b << 16 | g << 8 | r;
                     i += 1;
-                    b += 1;
+                    println!("[BYTE-PUSHER] {} R: {:x} G: {:x} B: {:x}", i, r << 16, g << 8, b);
                 }
-                g += 1;
             }
-            r += 1;
+        }
+
+        println!("[BYTE-PUSHER] i == {}", i);
+        while i <= 255 {
+            palette[i] = 0xff000000;
+            i += 1;
         }
 
         palette

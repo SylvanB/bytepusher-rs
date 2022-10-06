@@ -19,7 +19,7 @@ impl<'system> System<'system> {
         let mut frame_count = 0;
         loop {
             self.cpu.calculate_frame_data();
-            println!("[BYTE-PUSHER] frame count: {}", frame_count);
+            //println!("[BYTE-PUSHER] frame count: {}", frame_count);
             frame_count += 1;
             let pixeldata = self.cpu.get_pixeldata_block(0x5);
             self.display.render(pixeldata);
