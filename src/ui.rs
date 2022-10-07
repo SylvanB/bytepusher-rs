@@ -22,7 +22,7 @@ impl DisplayBuff {
     }
 
     pub fn build_palette() -> Vec<u32> {
-        let mut palette = vec![0; 0xff * 0xff * 0xff];
+        let mut palette = vec![0; 256];
 
         let mut i = 0;
         for r in (0..=0xff).step_by(0x33) {

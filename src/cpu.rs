@@ -20,8 +20,9 @@ impl<'cpu> Cpu<'cpu> {
         }
     }
 
-    pub fn get_pixeldata_block(&self, offset: usize) -> &[u8] {
-        self.mem.get_pixeldata_block(0x5)
+    pub fn get_pixeldata_block(&self, addr_loc: usize) -> &[u8] {
+        let addr = self.mem.addr_at(addr_loc);
+        self.mem.get_pixeldata_block(addr)
     }
 
     fn get_next_address(&mut self) -> usize {
